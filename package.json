@@ -1,0 +1,45 @@
+{
+  "name": "pflibs--shared-scope",
+  "version": "0.0.1",
+  "description": "Provides a shared, managed javascript resource scope to expose APIs for use across applications",
+  "main": "Dist/SharedScope.js",
+  "scripts": {
+    "browserify": "node_modules/.bin/browserify Src/SharedScope.js -t babelify --s SharedScope > Dist/SharedScope.js",
+    "uglify": "node_modules/.bin/uglifyjs Dist/SharedScope.js -o Dist/SharedScope.min.js --comments -c -m",
+    "build": "npm run browserify && npm run uglify",
+    "eslint": "node_modules/.bin/eslint Src/SharedScope.js --config Build/ESLintConfig.yaml",
+    "karma": "./node_modules/karma/bin/karma start Build/KarmaConfig.js",
+    "test": "npm run eslint && npm run build && npm run karma"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/PackageFactory/pflibs--shared-scope.git"
+  },
+  "author": [
+    {
+      "name": "Wilhelm Behncke",
+      "email": "wilhelm.behncke@googlemail.com",
+      "url": "https://github.com/grebaldi/"
+    }
+  ],
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/PackageFactory/pflibs--shared-scope/issues"
+  },
+  "homepage": "https://github.com/PackageFactory/pflibs--shared-scope",
+  "devDependencies": {
+    "babelify": "^6.0.2",
+    "browserify": "^10.1.0",
+    "es6-promise": "^2.3.0",
+    "eslint": "^0.24.0",
+    "glob": "^5.0.5",
+    "jasmine-core": "^2.3.0",
+    "karma": "^0.12.31",
+    "karma-commonjs": "0.0.13",
+    "karma-coverage": "^0.3.1",
+    "karma-jasmine": "^0.3.5",
+    "karma-phantomjs-launcher": "^0.1.4",
+    "promise-polyfill": "^2.1.0",
+    "uglify-js": "^2.4.16"
+  }
+}
